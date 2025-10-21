@@ -1,19 +1,50 @@
 :root{
---bg:#071024; --card:#0b1220; --accent:#ffb86b; --muted:#94a3b8;
+  --bg:#071024;
+  --card:#0b1220;
+  --accent:#ffb86b;
+  --muted:#94a3b8;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --maxwidth:1100px;
+  color-scheme: dark;
 }
+
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;color:#e6eef8;background:linear-gradient(180deg,#071024,#05111b)}
-.wrapper{max-width:1100px;margin:24px auto;padding:18px}
-.site-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}
-.brand{display:flex;align-items:center;gap:10px}
-.logo{width:54px;height:54px;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
-.title{font-weight:700}
-.main-nav{display:flex;gap:8px}
-.main-nav .nav-link{text-decoration:none;padding:8px 10px;border-radius:8px;color:var(--muted)}
-.main-nav .nav-link.active, .main-nav .nav-link:hover{background:rgba(255,255,255,0.03);color:var(--accent)}
-.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
-.section{margin-bottom:14px}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;color:#e6eef8;background:linear-gradient(180deg,#071024,#04111b)}
+a{color:inherit}
+.container{max-width:var(--maxwidth);margin:24px auto;padding:0 16px}
+
+/* Header */
+.site-header{max-width:var(--maxwidth);margin:16px auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand-left{display:flex;align-items:center;gap:12px}
+.brand-link{display:inline-block}
+.logo-img{width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.site-title{font-weight:700;font-size:18px;color:var(--accent)}
+.main-nav{display:flex;gap:8px;flex-wrap:wrap}
+.main-nav .nav-link{text-decoration:none;padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+.main-nav .nav-link.active, .main-nav .nav-link:hover{background:var(--glass);color:var(--accent)}
+
+/* Cards / content */
+.card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);margin-bottom:16px}
+.hero{padding:28px}
+.section-title{margin-top:0}
+
+/* Lists, people */
 .people-list{list-style:none;padding:0;margin:8px 0}
-.terms dt{font-weight:700}
-.site-footer{text-align:center;color:var(--muted);margin-top:18px}
-@media (max-width:780px){.site-header{flex-direction:column;align-items:flex-start}.main-nav{flex-wrap:wrap}}
+.people-list li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+
+/* Terms */
+.terms dt{font-weight:700;margin-top:12px}
+.terms dd{margin:6px 0 12px 0;color:var(--muted)}
+
+/* Footer */
+.site-footer{max-width:var(--maxwidth);margin:0 auto;padding:12px 16px;text-align:center;color:var(--muted)}
+
+/* Responsive */
+@media (max-width:860px){
+  .site-header{flex-direction:column;align-items:flex-start;padding:12px}
+  .logo-img{width:48px;height:48px}
+  .site-title{font-size:16px}
+  .main-nav{width:100%;gap:6px}
+  .container{padding:0 12px}
+}
