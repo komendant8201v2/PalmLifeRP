@@ -1,0 +1,19 @@
+:root{
+--bg:#071024; --card:#0b1220; --accent:#ffb86b; --muted:#94a3b8;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;color:#e6eef8;background:linear-gradient(180deg,#071024,#05111b)}
+.wrapper{max-width:1100px;margin:24px auto;padding:18px}
+.site-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:54px;height:54px;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
+.title{font-weight:700}
+.main-nav{display:flex;gap:8px}
+.main-nav .nav-link{text-decoration:none;padding:8px 10px;border-radius:8px;color:var(--muted)}
+.main-nav .nav-link.active, .main-nav .nav-link:hover{background:rgba(255,255,255,0.03);color:var(--accent)}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+.section{margin-bottom:14px}
+.people-list{list-style:none;padding:0;margin:8px 0}
+.terms dt{font-weight:700}
+.site-footer{text-align:center;color:var(--muted);margin-top:18px}
+@media (max-width:780px){.site-header{flex-direction:column;align-items:flex-start}.main-nav{flex-wrap:wrap}}
