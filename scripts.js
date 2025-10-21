@@ -1,27 +1,24 @@
-// Aktywne podświetlanie linku na podstawie aktualnej ścieżki
+// scripts.js — prosty skrypt do podświetlania aktywnego linku (nie blokuje nawigacji)
 (function(){
   const links = document.querySelectorAll('.main-nav .nav-link');
-  const path = location.pathname.split('/').pop() || 'index.html';
+  const pathname = window.location.pathname; // pełna ścieżka, np. /username/repo/regulamin.html
+  const currentFile = pathname.split('/').pop() || 'index.html';
 
   links.forEach(link => {
-    const href = link.getAttribute('href');
-    // Gdy link prowadzi do tej samej strony (porównanie plików)
-    if(href === path || (href === 'index.html' && path === '')) {
+    const href = link.getAttribute('href'); // np. 'regulamin.html' lub 'index.html'
+    // jeśli ścieżka kończy się nazwą pliku z href — traktujemy jako dopasowanie
+    if (pathname.endsWith(href) || (href === 'index.html' && currentFile === '')) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
     }
 
-    // Dla wygody: kliknięcie linku przenosi normalnie (strony separowane).
-    // Jeśli chcesz płynne przewijanie dla linków do kotwic w tej samej stronie,
-    // dopisz obsługę eventów dla href zaczynających się od '#'.
+    // Dla pewności: nie blokujemy domyślnego działania anchorów.
+    // (Jeśli masz inny skrypt, który używa e.preventDefault() — usuń go lub skomentuj.)
   });
 
-  // (Opcjonalne) Ułatwienie: jeśli użytkownik otwiera "index.html" bez nazwy pliku,
-  // location.pathname.split('/').pop() zwraca '', więc traktujemy to jako index.html:
-  if(path === '' ) {
-    links.forEach(l => {
-      if(l.getAttribute('href') === 'index.html') l.classList.add('active');
-    });
+  // Dodatkowe zabezpieczenie: jeśli strona otwierana jest jako "/repo-name/" (bez index.html)
+  if (currentFile === '' || currentFile === 'index.html') {
+    links.forEach(l => { if (l.getAttribute('href') === 'index.html') l.classList.add('active'); });
   }
 })();
