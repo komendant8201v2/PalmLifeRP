@@ -215,15 +215,39 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
 
 /* info block */
 .info{ flex:1; display:flex; flex-direction:column; gap:8px; }
+
+/* ======= LINE LAYOUT (imię / badge / discord) ======= */
+/* kluczowe: pozwalamy elementom flex kurczyć się poprawnie */
+.line,
+.line .left,
+.line .right {
+  min-width: 0;
+}
+
+/* główna linia: imię + badge + discord po prawej */
 .line{ display:flex; align-items:center; gap:12px; width:100%; }
 
-/* left & right groups inside the line */
-.line .left{ display:flex; align-items:center; gap:10px; }
-.line .right{ margin-left:auto; display:flex; align-items:center; gap:8px; white-space:nowrap; color:var(--muted); font-size:14px; }
+/* left & right groups */
+.line .left{ display:flex; align-items:center; gap:10px; min-width:0; overflow:hidden; }
+.line .right{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+  color:var(--muted);
+  font-size:14px;
+
+  /* Ograniczenie szerokości prawej kolumny, zapobiega wypychaniu layoutu */
+  flex: 0 0 auto;
+  max-width: 36%;
+  overflow: hidden;
+  text-align: right;
+}
 
 /* name & badge */
 .person-name{ margin:0; font-size:17px; color:#ffffff; font-weight:800; }
-.role-badge{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; color:#07111b; letter-spacing:0.2px; }
+.role-badge{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; color:#07111b; letter-spacing:0.2px; flex-shrink:0; white-space:nowrap; }
 
 /* badge colours */
 .role-badge.gold{ background: linear-gradient(90deg,#ffd36b,#ffb86b); color:#08101a; }
@@ -233,19 +257,29 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
 /* discord icon + handle */
 .discord{ margin:0; font-size:14px; color:var(--muted); display:flex; align-items:center; gap:8px; }
 .discord-ic{
-  width:18px !important;
-  height:18px !important;
-  min-width:18px;
-  min-height:18px;
+  width:16px !important;
+  height:16px !important;
+  min-width:16px;
+  min-height:16px;
   display:inline-block;
   vertical-align:middle;
   flex-shrink:0;
   opacity:0.95;
 }
-.line .right svg{ width:18px; height:18px; }
+.line .right svg{ width:16px; height:16px; }
 
-/* mono handle */
-.mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; color:#eaf6ff; font-weight:700; max-width:160px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+/* mono handle (ellipsis if long) */
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  color:#eaf6ff;
+  font-weight:700;
+  display:inline-block;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  vertical-align:middle;
+}
 
 /* bio */
 .bio{ margin:0; color:var(--muted); font-size:14px; line-height:1.45; }
@@ -262,6 +296,10 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
   .person-name{ font-size:16px; }
   .role-badge{ padding:5px 8px; font-size:12px; }
   .mono{ max-width:110px; font-size:13px; }
+  /* mobile: przenieś discord pod imię dla czytelności */
+  .line{ flex-wrap:wrap; gap:8px; }
+  .line .right{ margin-left:0; max-width:100%; text-align:left; width:100%; }
+  .line .left{ width:100%; }
 }
 
 /* ========= people-list (legacy / list view) ========= */
