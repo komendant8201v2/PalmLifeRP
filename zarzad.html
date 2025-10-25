@@ -1,19 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zarząd Serwera — PalmLifeRP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PalmLifeRP — Zarząd Serwera</title>
+  <meta name="description" content="Zarząd serwera PalmLifeRP" />
   <link rel="stylesheet" href="styles.css">
   <script defer src="scripts.js"></script>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="brand-left">
-      <a href="index.html" class="brand-link"><img src="./PalmlifeRP.png" class="logo-img" alt="logo"></a>
+      <a href="index.html" class="brand-link">
+        <img src="./PalmlifeRP.png" alt="PalmLifeRP logo" class="logo-img">
+      </a>
       <span class="site-title">PalmLifeRP</span>
     </div>
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Główna nawigacja">
       <a href="index.html" class="nav-link">Strona główna</a>
       <a href="regulamin.html" class="nav-link">Regulamin</a>
       <a href="historia.html" class="nav-link">Historia Projektu</a>
@@ -26,16 +29,51 @@
   <main class="container">
     <section class="card">
       <h1>Zarząd Serwera</h1>
-      <ul class="people-list">
-        <li><strong>Natarzyna</strong> — Właściciel</li>
-        <li><strong>Crimson</strong> — Administrator techniczny</li>
-        <li><strong>Kropek</strong> — Head Admin</li>
+      <p class="small-muted">Poznaj osoby odpowiedzialne za projekt PalmLifeRP.</p>
+
+      <ul class="people-list people-grid">
+        <!-- Game Founder -->
+        <li class="person">
+          <img src="./Nodin.png" alt="Nodin — Game Founder" class="person-img">
+          <div class="person-meta">
+            <div class="person-name">n0d1n_</div>
+            <div class="person-role">Game Founder</div>
+          </div>
+        </li>
+
+        <!-- Head Director -->
+        <li class="person">
+          <img src="./Xenon.png" alt="Xenon — Head Director" class="person-img">
+          <div class="person-meta">
+            <div class="person-name">xenoniasty</div>
+            <div class="person-role">Head Director</div>
+          </div>
+        </li>
+
+        <!-- Directors -->
+        <li class="person">
+          <img src="./Swiniox.png" alt="Swiniox — Director" class="person-img">
+          <div class="person-meta">
+            <div class="person-name">swiniox</div>
+            <div class="person-role">Director</div>
+          </div>
+        </li>
+
+        <li class="person">
+          <img src="./Emeryt.png" alt="Emeryt — Director" class="person-img">
+          <div class="person-meta">
+            <div class="person-name">_shadow33</div>
+            <div class="person-role">Director</div>
+          </div>
+        </li>
       </ul>
+
+      <p class="small-muted">Jeśli chcesz, mogę dodać linki kliknięcia prowadzące do profili Discord (np. <code>discord.gg/...</code>) lub ikonki social obok nicków.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 PalmLifeRP</p>
+    <p>© PalmLifeRP — Zarząd Serwera</p>
   </footer>
 </body>
 </html>
