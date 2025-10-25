@@ -1,140 +1,382 @@
-<!doctype html>
-<html lang="pl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PalmLifeRP — Developerzy</title>
-  <meta name="description" content="Zespół developerów PalmLifeRP" />
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="scripts.js"></script>
-</head>
-<body>
-  <header class="site-header" role="banner">
-    <div class="brand-left">
-      <a href="index.html" class="brand-link">
-        <img src="./PalmlifeRP.png" alt="PalmLifeRP logo" class="logo-img">
-      </a>
-      <span class="site-title">PalmLifeRP</span>
-    </div>
-    <nav class="main-nav" role="navigation" aria-label="Główna nawigacja">
-      <a href="index.html" class="nav-link">Strona główna</a>
-      <a href="regulamin.html" class="nav-link">Regulamin</a>
-      <a href="historia.html" class="nav-link">Historia Projektu</a>
-      <a href="zarzad.html" class="nav-link">Zarząd Serwera</a>
-      <a href="developerzy.html" class="nav-link active">Developerzy</a>
-      <a href="pojecia.html" class="nav-link">Pojęcia RP</a>
-    </nav>
-  </header>
+:root{
+  --bg: #071024;
+  --card: #0b1220;
+  --accent: #ffb86b;
+  --accent-2: #ff9f3b;
+  --muted: #9fb0c6;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --maxwidth: 1100px;
+  --text: #e6eef8;
+  color-scheme: dark;
+}
 
-  <main class="container">
-    <section class="card">
-      <h1>Developerzy</h1>
-      <p class="small-muted">Zespół techniczny odpowiedzialny za rozwój, skrypty i utrzymanie serwera.</p>
+/* ========= RESET & BAZA ========= */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+/* zapobiegamy poziomemu skrolowaniu przy overflowach */
+html, body { overflow-x: hidden; }
 
-      <div class="board-grid">
-        <!-- Head Developer: Tyler -->
-        <article class="board-card founder">
-          <img src="./Tyler.png" alt="mon_ok1 avatar" class="avatar">
-          <div class="info">
-            <div class="line">
-              <div class="left">
-                <h3 class="person-name">mon_ok1</h3>
-                <span class="role-badge teal">Head Developer</span>
-              </div>
-              <div class="right">
-                <!-- Discord icon + handle -->
-                <svg class="discord-ic" viewBox="0 0 24 24" aria-hidden>
-                  <path fill="currentColor" d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.405-.397-.874-.608-1.249a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.68 4.369a.065.065 0 0 0-.028.024C1.77 9.045.77 13.567 1.05 18.053a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 6.08 3.113.077.077 0 0 0 .084-.027c.47-.65.888-1.338 1.241-2.053a.076.076 0 0 0-.041-.105c-.652-.247-1.27-.549-1.84-.892a.077.077 0 0 1-.007-.127c.123-.093.246-.19.363-.291a.074.074 0 0 0 .012-.101c-.084-.12-.168-.243-.245-.37a.073.073 0 0 1 .043-.102c1.548-.49 3.03-.49 4.53 0a.073.073 0 0 1 .045.102c-.078.127-.16.25-.245.37a.074.074 0 0 0 .012.101c.117.101.24.198.363.291a.076.076 0 0 1-.006.127c-.57.343-1.188.645-1.84.892a.076.076 0 0 0-.04.105c.36.715.78 1.403 1.25 2.053a.077.077 0 0 0 .084.027 19.9 19.9 0 0 0 6.08-3.113.077.077 0 0 0 .03-.056c.5-6.518-.838-11.98-2.652-13.66a.062.062 0 0 0-.028-.024zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419zm7.975 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419z"/>
-                </svg>
-                <span class="mono">mon_ok1</span>
-              </div>
-            </div>
-            <p class="bio">Główny developer — budowniczy/skrypter</p>
-          </div>
-        </article>
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, #04111b 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
 
-        <!-- Developer: Borys -->
-        <article class="board-card director">
-          <img src="./Borys.png" alt="borise0808 avatar" class="avatar">
-          <div class="info">
-            <div class="line">
-              <div class="left">
-                <h3 class="person-name">borise0808</h3>
-                <span class="role-badge accent">Developer</span>
-              </div>
-              <div class="right">
-                <svg class="discord-ic" viewBox="0 0 24 24" aria-hidden>
-                  <path fill="currentColor" d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.405-.397-.874-.608-1.249a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.68 4.369a.065.065 0 0 0-.028.024C1.77 9.045.77 13.567 1.05 18.053a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 6.08 3.113.077.077 0 0 0 .084-.027c.47-.65.888-1.338 1.241-2.053a.076.076 0 0 0-.041-.105c-.652-.247-1.27-.549-1.84-.892a.077.077 0 0 1-.007-.127c.123-.093.246-.19.363-.291a.074.074 0 0 0 .012-.101c-.084-.12-.168-.243-.245-.37a.073.073 0 0 1 .043-.102c1.548-.49 3.03-.49 4.53 0a.073.073 0 0 1 .045.102c-.078.127-.16.25-.245.37a.074.074 0 0 0 .012.101c.117.101.24.198.363.291a.076.076 0 0 1-.006.127c-.57.343-1.188.645-1.84.892a.076.076 0 0 0-.04.105c.36.715.78 1.403 1.25 2.053a.077.077 0 0 0 .084.027 19.9 19.9 0 0 0 6.08-3.113.077.077 0 0 0 .03-.056c.5-6.518-.838-11.98-2.652-13.66a.062.062 0 0 0-.028-.024zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419zm7.975 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419z"/></svg>
-                <span class="mono">borise0808</span>
-              </div>
-            </div>
-            <p class="bio">Developer — budowniczy/skrypter</p>
-          </div>
-        </article>
+/* ========= LAYOUT ========= */
+.container{
+  max-width: var(--maxwidth);
+  margin: 24px auto;
+  padding: 0 18px;
+}
 
-        <!-- Developer: Vincent -->
-        <article class="board-card director">
-          <img src="./Vincent.png" alt="whyvincent avatar" class="avatar">
-          <div class="info">
-            <div class="line">
-              <div class="left">
-                <h3 class="person-name">whyvincent</h3>
-                <span class="role-badge accent">Developer</span>
-              </div>
-              <div class="right">
-                <svg class="discord-ic" viewBox="0 0 24 24" aria-hidden>
-                  <path fill="currentColor" d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.405-.397-.874-.608-1.249a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.68 4.369a.065.065 0 0 0-.028.024C1.77 9.045.77 13.567 1.05 18.053a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 6.08 3.113.077.077 0 0 0 .084-.027c.47-.65.888-1.338 1.241-2.053a.076.076 0 0 0-.041-.105c-.652-.247-1.27-.549-1.84-.892a.077.077 0 0 1-.007-.127c.123-.093.246-.19.363-.291a.074.074 0 0 0 .012-.101c-.084-.12-.168-.243-.245-.37a.073.073 0 0 1 .043-.102c1.548-.49 3.03-.49 4.53 0a.073.073 0 0 1 .045.102c-.078.127-.16.25-.245.37a.074.074 0 0 0 .012.101c.117.101.24.198.363.291a.076.076 0 0 1-.006.127c-.57.343-1.188.645-1.84.892a.076.076 0 0 0-.04.105c.36.715.78 1.403 1.25 2.053a.077.077 0 0 0 .084.027 19.9 19.9 0 0 0 6.08-3.113.077.077 0 0 0 .03-.056c.5-6.518-.838-11.98-2.652-13.66a.062.062 0 0 0-.028-.024zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419zm7.975 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419z"/></svg>
-                <span class="mono">whyvincent</span>
-              </div>
-            </div>
-            <p class="bio">Developer — budowniczy</p>
-          </div>
-        </article>
+/* ========= HEADER & NAV ========= */
+.site-header{
+  max-width: var(--maxwidth);
+  margin: 18px auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: transparent;
+}
+.brand-left{ display:flex; align-items:center; gap:12px; }
+.brand-link{ display:inline-block; line-height:0; }
 
-        <!-- Developer: Komendant -->
-        <article class="board-card director">
-          <img src="./Komendant.png" alt="komendant8201 avatar" class="avatar">
-          <div class="info">
-            <div class="line">
-              <div class="left">
-                <h3 class="person-name">komendant8201</h3>
-                <span class="role-badge accent">Developer</span>
-              </div>
-              <div class="right">
-                <svg class="discord-ic" viewBox="0 0 24 24" aria-hidden>
-                  <path fill="currentColor" d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.405-.397-.874-.608-1.249a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.68 4.369a.065.065 0 0 0-.028.024C1.77 9.045.77 13.567 1.05 18.053a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 6.08 3.113.077.077 0 0 0 .084-.027c.47-.65.888-1.338 1.241-2.053a.076.076 0 0 0-.041-.105c-.652-.247-1.27-.549-1.84-.892a.077.077 0 0 1-.007-.127c.123-.093.246-.19.363-.291a.074.074 0 0 0 .012-.101c-.084-.12-.168-.243-.245-.37a.073.073 0 0 1 .043-.102c1.548-.49 3.03-.49 4.53 0a.073.073 0 0 1 .045.102c-.078.127-.16.25-.245.37a.074.074 0 0 0 .012.101c.117.101.24.198.363.291a.076.076 0 0 1-.006.127c-.57.343-1.188.645-1.84.892a.076.076 0 0 0-.04.105c.36.715.78 1.403 1.25 2.053a.077.077 0 0 0 .084.027 19.9 19.9 0 0 0 6.08-3.113.077.077 0 0 0 .03-.056c.5-6.518-.838-11.98-2.652-13.66a.062.062 0 0 0-.028-.024zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419zm7.975 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419z"/></svg>
-                <span class="mono">komendant8201</span>
-              </div>
-            </div>
-            <p class="bio">Developer — skrypter/budowniczy/modele 3D</p>
-          </div>
-        </article>
+.logo-img{
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  object-fit:cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  display:block;
+  transition: transform .18s ease;
+}
+.logo-img:hover{ transform: scale(1.02); }
 
-        <!-- Developer: Noah -->
-        <article class="board-card director">
-          <img src="./Noah.png" alt="thenoah_x avatar" class="avatar">
-          <div class="info">
-            <div class="line">
-              <div class="left">
-                <h3 class="person-name">thenoah_x</h3>
-                <span class="role-badge accent">Developer</span>
-              </div>
-              <div class="right">
-                <svg class="discord-ic" viewBox="0 0 24 24" aria-hidden>
-                  <path fill="currentColor" d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.405-.397-.874-.608-1.249a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.68 4.369a.065.065 0 0 0-.028.024C1.77 9.045.77 13.567 1.05 18.053a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 6.08 3.113.077.077 0 0 0 .084-.027c.47-.65.888-1.338 1.241-2.053a.076.076 0 0 0-.041-.105c-.652-.247-1.27-.549-1.84-.892a.077.077 0 0 1-.007-.127c.123-.093.246-.19.363-.291a.074.074 0 0 0 .012-.101c-.084-.12-.168-.243-.245-.37a.073.073 0 0 1 .043-.102c1.548-.49 3.03-.49 4.53 0a.073.073 0 0 1 .045.102c-.078.127-.16.25-.245.37a.074.074 0 0 0 .012.101c.117.101.24.198.363.291a.076.076 0 0 1-.006.127c-.57.343-1.188.645-1.84.892a.076.076 0 0 0-.04.105c.36.715.78 1.403 1.25 2.053a.077.077 0 0 0 .084.027 19.9 19.9 0 0 0 6.08-3.113.077.077 0 0 0 .03-.056c.5-6.518-.838-11.98-2.652-13.66a.062.062 0 0 0-.028-.024zM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419zm7.975 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.186 1.095 2.157 2.418 0 1.334-.948 2.419-2.157 2.419z"/></svg>
-                <span class="mono">thenoah_x</span>
-              </div>
-            </div>
-            <p class="bio">Developer — budowniczy</p>
-          </div>
-        </article>
+.site-title{
+  font-weight:700;
+  font-size:16px;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+}
 
-      </div>
-    </section>
-  </main>
+/* NAV */
+.main-nav{ display:flex; gap:10px; flex-wrap:wrap; }
+.main-nav .nav-link{
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:10px;
+  color: var(--muted);
+  font-weight:600;
+  font-size:14px;
+  transition: all .14s ease;
+  background: transparent;
+  border:1px solid transparent;
+  display:inline-block;
+}
+.main-nav .nav-link:hover{
+  transform: translateY(-2px);
+  color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-color: rgba(255,255,255,0.02);
+  box-shadow: 0 6px 18px rgba(2,6,20,0.4);
+}
+.main-nav .nav-link.active{
+  color:#08101a;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  box-shadow: 0 8px 30px rgba(255,176,107,0.08), 0 2px 6px rgba(0,0,0,0.6);
+}
 
-  <footer class="site-footer">
-    <p>© PalmLifeRP — Developerzy</p>
-  </footer>
-</body>
-</html>
+/* mobile header tweaks */
+@media (max-width:860px){
+  .site-header{ flex-direction:column; align-items:flex-start; padding:12px 14px; }
+  .main-nav{ width:100%; gap:6px; }
+  .container{ padding:0 12px; }
+}
+@media (max-width:420px){
+  .logo-img{ width:32px; height:32px; }
+  .site-title{ display:none; }
+}
+
+/* ========= HERO & CARDS ========= */
+.card{
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  margin-bottom: 18px;
+}
+.hero{
+  padding: 30px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+}
+.hero h1{ margin:0 0 8px; font-size:26px; }
+.hero p{ margin:0; color: var(--muted); line-height:1.5; }
+
+/* typography */
+h1,h2,h3{ line-height:1.15; color:#f6f9fb; margin:0; }
+h2{ margin-top:12px; }
+p{ line-height:1.6; color:#dcebf9; margin: 0 0 10px 0; }
+ul{ padding-left:18px; margin:0 0 10px 0; }
+ol{ padding-left:18px; margin:0 0 10px 0; }
+li{ margin:6px 0; }
+
+/* small text */
+.small-muted{ color: var(--muted); font-size:13px; }
+
+/* ========= FIGURE & IMAGES ========= */
+.figure{
+  margin:16px 0;
+  padding:10px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.007), rgba(255,255,255,0.003));
+}
+.figure-img{
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  display:block;
+  max-height:520px;
+  object-fit:cover;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+}
+.figure-caption{ margin-top:8px; font-size:14px; color:var(--muted); }
+
+/* ========= BANNER ========= */
+.banner{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+.banner-img{
+  width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display:block;
+}
+
+/* ========= ANIMACJE & REVEAL ========= */
+.reveal{ opacity:0; transform:translateY(12px); transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1); will-change: opacity, transform; }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+.banner-img.reveal{ transition-duration:760ms; transition-timing-function:cubic-bezier(.17,.84,.44,1); transform-origin:center; }
+
+.logo-pop{ transform-origin:center; animation: logoPop 520ms cubic-bezier(.2,.9,.2,1) both; }
+@keyframes logoPop{ 0%{ transform:scale(.75); opacity:0; } 60%{ transform:scale(1.06); opacity:1; } 100%{ transform:scale(1); } }
+
+.figure-img.reveal{ transform: translateY(18px) scale(.995); transition-duration:760ms; }
+.figure-img.reveal.in-view{ transform: translateY(0) scale(1); }
+
+body.animate-ready{ opacity:0; transform:translateY(6px); transition: opacity 420ms ease, transform 420ms ease; }
+body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal, .banner-img, .figure-img, .logo-pop, body.animate-ready{ transition:none !important; animation:none !important; transform:none !important; opacity:1 !important; }
+}
+
+/* ========= BOARD / ZARZĄD / DEVELOPERZY (karty) ========= */
+.board-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap:18px;
+  margin-top:18px;
+  align-items: start;
+  grid-auto-rows: minmax(120px, auto);
+}
+.board-card{
+  position: relative;
+  overflow: hidden;       /* klucz: obcina to co wychodzi poza ramkę karty */
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:14px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+  transition: transform .14s ease, box-shadow .14s ease;
+  min-height: 120px;
+}
+.board-card:hover{ transform: translateY(-6px); box-shadow: 0 16px 48px rgba(2,6,23,0.55); }
+
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:12px;
+  object-fit:cover;
+  flex-shrink:0;
+  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.02);
+  z-index:2;
+  margin:0;
+}
+
+/* info block */
+.info{ flex:1; display:flex; flex-direction:column; gap:8px; }
+
+/* ======= LINE LAYOUT (imię / badge / discord) ======= */
+/* kluczowe: pozwalamy elementom flex kurczyć się poprawnie */
+.line,
+.line .left,
+.line .right {
+  **min-width: 0;**
+}
+
+/* główna linia: imię + badge + discord po prawej */
+.line{ display:flex; align-items:center; gap:12px; width:100%; }
+
+/* left & right groups */
+.line .left{ display:flex; align-items:center; gap:10px; min-width:0; overflow:hidden; }
+.line .right{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+  color:var(--muted);
+  font-size:14px;
+
+  /* stała szerokość prawej kolumny — zapobiega wypychaniu zawartości */
+  flex: 0 0 160px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  **min-width: 0; /* Dodane dla pewności */**
+}
+
+/* name & badge */
+.person-name{ margin:0; font-size:17px; color:#ffffff; font-weight:800; }
+.role-badge{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; color:#07111b; letter-spacing:0.2px; flex-shrink:0; white-space:nowrap; }
+
+/* badge colours */
+.role-badge.gold{ background: linear-gradient(90deg,#ffd36b,#ffb86b); color:#08101a; }
+.role-badge.teal{ background: linear-gradient(90deg,#6be3d3,#4bd1c5); color:#031617; }
+.role-badge.accent{ background: linear-gradient(90deg,#9fb8ff,#7b9cff); color:#05102a; }
+
+/* discord icon + handle */
+.discord{ margin:0; font-size:14px; color:var(--muted); display:flex; align-items:center; gap:8px; }
+.discord-ic{
+  width:14px !important;
+  height:14px !important;
+  min-width:14px;
+  min-height:14px;
+  display:inline-block;
+  vertical-align:middle;
+  flex-shrink:0;
+  opacity:0.95;
+}
+.line .right svg{ width:14px; height:14px; }
+
+/* mono handle (ellipsis if long) */
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  color:#eaf6ff;
+  font-weight:700;
+  display:inline-block;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  vertical-align:middle;
+  **min-width: 0; /* KLUCZOWA POPRAWKA */**
+}
+
+/* bio */
+.bio{ margin:0; color:var(--muted); font-size:14px; line-height:1.45; }
+
+/* subtle role border */
+.founder{ border-left:6px solid rgba(255,184,107,0.12); }
+.director-head{ border-left:6px solid rgba(75,209,197,0.12); }
+.director{ border-left:6px solid rgba(123,156,255,0.12); }
+
+/* responsive small devices for board */
+@media (max-width:640px){
+  .board-card{ flex-direction:row; align-items:flex-start; padding:12px; }
+  .avatar{ width:72px; height:72px; }
+  .person-name{ font-size:16px; }
+  .role-badge{ padding:5px 8px; font-size:12px; }
+  .mono{ font-size:13px; }
+  /* mobile: przenieś discord pod imię dla czytelności */
+  .line{ flex-wrap:wrap; gap:8px; }
+  .line .right{
+    margin-left:0;
+    **flex: 1 1 100%; /* Ustawia elastyczność i pełną szerokość */**
+    max-width:100%;
+    text-align:left;
+    width:100%;
+    **min-width: 0; /* KLUCZOWA POPRAWKA: Wymusza poprawne zachowanie skracania */**
+  }
+  .line .left{ width:100%; }
+}
+
+/* ========= people-list (legacy / list view) ========= */
+.people-list{ list-style:none; padding:0; margin:8px 0; display:block; }
+.people-list .person{ list-style:none; display:flex; align-items:center; gap:12px; padding:12px; border-radius:10px; background: linear-gradient(180deg, rgba(255,255,255,0.007), rgba(255,255,255,0.003)); border:1px solid rgba(255,255,255,0.01); transition: transform .12s ease, box-shadow .12s ease; }
+.people-list .person:hover{ transform: translateY(-4px); box-shadow: 0 14px 40px rgba(2,6,23,0.45); }
+.person-img{ width:72px; height:72px; border-radius:10px; object-fit:cover; flex-shrink:0; box-shadow:0 6px 18px rgba(0,0,0,0.45); }
+.person-meta{ display:flex; flex-direction:column; gap:4px; }
+.person-role{ font-size:13px; color:var(--muted); }
+
+/* mobile */
+@media (max-width:520px){
+  .person-img{ width:56px; height:56px; }
+  .person-name{ font-size:15px; }
+  .person-role{ font-size:12px; }
+}
+
+/* ========= TERMS (simple-terms) ========= */
+.cat-title{ margin:18px 0 8px 0; font-size:18px; color:#f6f9fb; }
+.simple-terms{ list-style:none; padding:0; margin:0 0 14px 0; }
+.simple-terms li{ padding:10px; border-radius:10px; background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.003)); margin-bottom:10px; display:block; }
+.simple-terms .term{ font-weight:700; color:#ffffff; margin-right:8px; }
+
+/* GRID term layout */
+.term-category{ margin-top:14px; }
+.terms-list{ list-style:none; padding:0; margin:0; display:block; }
+.terms-list li{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:14px;
+  align-items:start;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.007), rgba(255,255,255,0.003));
+  border:1px solid rgba(255,255,255,0.01);
+}
+.terms-list .term{ font-weight:700; color:#ffffff; padding-right:6px; }
+.terms-list .definition{ margin:0; color:var(--muted); line-height:1.5; font-size:15px; }
+@media (max-width:720px){
+  .terms-list li{ grid-template-columns:1fr; padding:10px; }
+  .term{ margin-bottom:6px; }
+}
+
+/* ========= FOOTER ========= */
+.site-footer{ max-width:var(--maxwidth); margin:10px auto 28px; padding:12px 18px; text-align:center; color:var(--muted); font-size:13px; }
+
+/* ========= MISC UTILITY ========= */
+.code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; background: rgba(255,255,255,0.02); padding:4px 8px; border-radius:6px; }
+.kv{ color:var(--muted); font-size:13px; }
+
+/* small tweaks for print */
+@media print{
+  body{ background: #fff; color:#000; }
+  .site-header, .main-nav, .site-footer{ display:none; }
+  .container{ max-width:100%; padding:0; margin:0; }
+}
+
+/* accessibility focus */
+:focus{ outline: 2px solid rgba(255,184,107,0.18); outline-offset: 2px; }
