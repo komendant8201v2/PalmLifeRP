@@ -222,3 +222,45 @@ body.animate-ready.loaded {
   }
 }
 
+/* --- Zarząd: lista osób z obrazkiem --- */
+.people-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:14px;
+  padding:0;
+}
+.people-list .person{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.007), rgba(255,255,255,0.003));
+  border:1px solid rgba(255,255,255,0.01);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.people-list .person:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(2,6,23,0.45);
+}
+
+.person-img{
+  width:72px;
+  height:72px;
+  border-radius:10px;
+  object-fit:cover;
+  flex-shrink:0;
+  box-shadow:0 6px 18px rgba(0,0,0,0.45);
+}
+
+.person-meta{display:flex;flex-direction:column;gap:4px;}
+.person-name{font-weight:700;color:#ffffff;font-size:16px;}
+.person-role{font-size:13px;color:var(--muted);}
+
+/* Mobile: obraz i meta ułożone poziomo ale mniejsze */
+@media (max-width:520px){
+  .person-img{width:56px;height:56px}
+  .person-name{font-size:15px}
+  .person-role{font-size:12px}
+}
