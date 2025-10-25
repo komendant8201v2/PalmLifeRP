@@ -14,6 +14,9 @@
 /* ========= RESET & BAZA ========= */
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; padding: 0; }
+/* zapobiegamy poziomemu skrolowaniu przy overflowach */
+html, body { overflow-x: hidden; }
+
 body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color: var(--text);
@@ -183,14 +186,18 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
   .reveal, .banner-img, .figure-img, .logo-pop, body.animate-ready{ transition:none !important; animation:none !important; transform:none !important; opacity:1 !important; }
 }
 
-/* ========= BOARD / ZARZĄD (karty) ========= */
+/* ========= BOARD / ZARZĄD / DEVELOPERZY (karty) ========= */
 .board-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap:18px;
   margin-top:18px;
+  align-items: start;
+  grid-auto-rows: minmax(120px, auto);
 }
 .board-card{
+  position: relative;
+  overflow: hidden;       /* klucz: obcina to co wychodzi poza ramkę karty */
   display:flex;
   gap:14px;
   align-items:flex-start;
@@ -200,6 +207,7 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
   border:1px solid rgba(255,255,255,0.02);
   box-shadow: 0 8px 30px rgba(2,6,23,0.45);
   transition: transform .14s ease, box-shadow .14s ease;
+  min-height: 120px;
 }
 .board-card:hover{ transform: translateY(-6px); box-shadow: 0 16px 48px rgba(2,6,23,0.55); }
 
@@ -211,6 +219,8 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
   flex-shrink:0;
   box-shadow:0 8px 20px rgba(0,0,0,0.45);
   border:1px solid rgba(255,255,255,0.02);
+  z-index:2;
+  margin:0;
 }
 
 /* info block */
@@ -238,10 +248,11 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
   color:var(--muted);
   font-size:14px;
 
-  /* Ograniczenie szerokości prawej kolumny, zapobiega wypychaniu layoutu */
-  flex: 0 0 auto;
-  max-width: 36%;
+  /* stała szerokość prawej kolumny — zapobiega wypychaniu zawartości */
+  flex: 0 0 160px;
+  max-width: 160px;
   overflow: hidden;
+  text-overflow: ellipsis;
   text-align: right;
 }
 
@@ -257,16 +268,16 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
 /* discord icon + handle */
 .discord{ margin:0; font-size:14px; color:var(--muted); display:flex; align-items:center; gap:8px; }
 .discord-ic{
-  width:16px !important;
-  height:16px !important;
-  min-width:16px;
-  min-height:16px;
+  width:14px !important;
+  height:14px !important;
+  min-width:14px;
+  min-height:14px;
   display:inline-block;
   vertical-align:middle;
   flex-shrink:0;
   opacity:0.95;
 }
-.line .right svg{ width:16px; height:16px; }
+.line .right svg{ width:14px; height:14px; }
 
 /* mono handle (ellipsis if long) */
 .mono{
@@ -298,7 +309,7 @@ body.animate-ready.loaded{ opacity:1; transform:translateY(0); }
   .mono{ max-width:110px; font-size:13px; }
   /* mobile: przenieś discord pod imię dla czytelności */
   .line{ flex-wrap:wrap; gap:8px; }
-  .line .right{ margin-left:0; max-width:100%; text-align:left; width:100%; }
+  .line .right{ margin-left:0; flex: 0 0 100%; max-width:100%; text-align:left; width:100%; }
   .line .left{ width:100%; }
 }
 
